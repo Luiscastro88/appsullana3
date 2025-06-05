@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rutas Registradas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #35a635;
+      color: white;
+    }
+
+    .sin-datos {
+      text-align: center;
+      margin-top: 20px;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Rutas Programadas Registradas</h2>
+    <div id="tabla-rutas"></div>
+  </div>
+
+  <script>
+    const contenedor = document.getElementById("tabla-rutas");
+    const rutas = JSON.parse(localStorage.getItem("rutas")) || [];
+
+    if (rutas.length === 0) {
+      contenedor.innerHTML = '<p class="sin-datos">No hay rutas registradas aún.</p>';
+    } else {
+      let tabla = `
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Zona/Sector</th>
+              <th>Hora Inicio</th>
+              <th>Hora Fin</th>
+              <th>Tipo de Camión</th>
+              <th>Observaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      rutas.forEach(ruta => {
+        tabla += `
+          <tr>
+            <td>${ruta.fecha}</td>
+            <td>${ruta.zona}</td>
+            <td>${ruta.inicio}</td>
+            <td>${ruta.fin}</td>
+            <td>${ruta.camion}</td>
+            <td>${ruta.observaciones || '-'}</td>
+          </tr>
+        `;
+      });
+
+      tabla += `</tbody></table>`;
+      contenedor.innerHTML = tabla;
+    }
+  </script>
+</body>
+</html>

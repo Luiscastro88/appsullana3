@@ -1,0 +1,16 @@
+.body {
+
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f0f0;
+
+}
+
+
+
+/*
+<button style="background-color: #25D366; color: white; padding: 10px 20px; border: none; font-size: 16px; border-radius: 8px;" onclick="redirigirWhatsApp()">
+  💬 Contactar por WhatsApp
+</button>
+*/

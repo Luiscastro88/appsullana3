@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario de Registro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <button class="top-button" onclick="window.location.href='index.html'">ATRÁS</button>
+    <button class="top-button" onclick="window.location.href='index.html'">Continuar con Gmail</button>
+    <h1>Registro de usuario</h1>
+    <form onsubmit="registrarUsuario(event)">
+      <input type="text" placeholder="Propietario de Predio" required />
+      <input type="text" placeholder="Dni" required />
+      <input type="text" placeholder="Celular" required />
+     
+      
+      <button type="button" onclick="window.open('https://maps.google.com', '_blank')">📍 Ver tu ubi</button>
+       <input type="text" placeholder="Dirección" required />
+        <input type="text" placeholder="Referencia" required />
+      <!--<h2>Elija el tipo de via</h2>
+      <select required>
+        
+        <option value="">Tipo de vía</option>
+        <option value="calle">Calle</option>
+        <option value="avenida">Avenida</option>
+      </select>
+
+      <input type="text" placeholder="Manzana" required />
+      <input type="text" placeholder="Lote" required />
+      <input type="text" placeholder="Referencia" />-->
+      <button type="submit">Registrar</button>
+    </form>
+  </div>
+  <script>
+    function registrarUsuario(e) {
+      e.preventDefault();
+      alert("Usuario registrado correctamente");
+      window.location.href = "https://www.gob.pe/satsullana";
+    }
+  </script>
+</body>
+</html>

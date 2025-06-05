@@ -1,0 +1,93 @@
+<!--<!DOCTYPE html>
+<html lang="es">
+    <!le decimos al navegador para que funcione en español
+    <head>
+        <meta charset="UTF-8">
+        <!para que nos deje usar la ñ
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!para visualizar la app y responsiva
+
+        <title> Pagina principal</title>
+        <link rel="stylesheet" href="principal.css"/>
+        <link rel="manifest" href="icons/logo.png"/>
+
+    <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+
+       <script>
+            function redirigirWhatsapp(){
+                const numero="51995943111";
+                const mensaje=encodeURIComponent("Hola, tengo una consulta sobre el SAT SULLANA");
+                const url  =`https:/wa.me/${numero}?text=${mensaje}`;
+                window.open(url, "_blank");
+
+            }
+        </script>
+    </head>
+</html>
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pagina principal</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/logoo.png" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+
+  
+
+
+</head>
+<body>
+  
+  <div class="container">
+        <button class="top-button" onclick="window.location.href='reporteincidente.html'">Reporte a Whatsapp</button>
+
+   <!-- <button class="whatsapp" onclick="enviarWhatsapp()">Reportar a Whatsapp</button>-->
+
+
+
+    <img src="icons/logo.jpeg" alt="Logo" class="logo" />
+
+    <button class="bottom-button" onclick="window.location.href='rutasprogramadas.html'">VISUALIZAR RUTAS PROGRAMADAS</button>
+    <button class="bottom-button" onclick="window.location.href='https://www.google.com/maps'">VISUALIZA EN TIEMPO REAL</button>
+  </div>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
