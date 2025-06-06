@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Ruta Programada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('img/fondo-ruta.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 40px auto;
+      background-color: rgba(255, 255, 255, 0.96);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #28c420;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fd1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Registrar Ruta de Recolección</h2>
+
+    <form onsubmit="guardarRuta(event)">
+      <label for="fecha">Fecha:</label>
+      <input type="date" id="fecha" required>
+
+      <label for="zona">Zona:</label>
+      <input type="text" id="zona" placeholder="zona de sullana" required>
+
+      <label for="inicio"Hora de inicio:</label>
+      <input type="time" id="inicio" required>
+
+      <label for="fin">Hora de fin:</label>
+      <input type="time" id="fin" required>
+
+      <label for="camion">Tipo de camión:</label>
+      <select id="camion" required>
+        <option value="">Seleccione</option>
+        <option value="Camión Compactador">Camión Compactador</option>
+        <option value="Camión Volquete">Camión Volquete</option>
+        <option value="Motofurgón">Motofurgón</option>
+      </select>
+
+      <label for="observaciones">Observaciones:</label>
+      <textarea id="observaciones" placeholder="Oservaciones" rows="3"></textarea>
+
+      <button type="submit">Registrar Ruta</button>
+    </form>
+  </div>
+
+  <script>
+    function guardarRuta(e) {
+      e.preventDefault();
+
+      const ruta = {
+        fecha: document.getElementById('fecha').value,
+        zona: document.getElementById('zona').value,
+        inicio: document.getElementById('inicio').value,
+        fin: document.getElementById('fin').value,
+        camion: document.getElementById('camion').value,
+        observaciones: document.getElementById('observaciones').value
+      };
+
+      let rutas = JSON.parse(localStorage.getItem('rutas')) || [];
+      rutas.push(ruta);
+      localStorage.setItem('rutas', JSON.stringify(rutas));
+
+      alert("✅ Ruta registrada correctamente.");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
